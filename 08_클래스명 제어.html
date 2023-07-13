@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스명 제어</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      button {
+        width: 150px;
+        border : 2px solid #000;
+        background-color: palevioletred;
+        color: #fff;
+        padding: 15px 0;
+        border-radius: 10px;
+        box-shadow: 3px 3px palevioletred, inset 3px 3px white;
+        display: block;
+        margin: 50px;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        display: none;
+      }
+      img.on {display: block;}
+    </style>
+    <script>
+      window.onload = function(){
+        let btn = document.getElementsByTagName('button')[0]
+        let imgTag = document.getElementsByTagName('img')
+  
+        btn.onclick = function(){
+          //imgTag[0].classList.add('on')
+          
+          //첫번째 img태그 클래스명 on지우고
+          //두번째 img태그에게 클래스명 on붙여준다.
+          imgTag[0].classList.remove('on');
+          imgTag[1].classList.add('on')
+        }
+      }//window.onload
+    </script>
+  </head>
+  <body>
+    <button>버튼</button>
+    <img class="on" src="img/whale-g90ff93930_1920.jpg" alt="" />
+    <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+  </body>
+  </html>

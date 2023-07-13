@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴바와 탭메뉴</title>
+    <link href="css/24.css" rel="stylesheet"  />
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            let menu = $('.tab_menu li');
+            let bar = $('.bar');
+            menu.click(function(){
+                //위치메서드 offset, position
+                //offset() : 브라우저를 기준으로 x축, y축
+                //position() : 포지션을 기준으로 x축, y축
+                //position().top, position().left
+                console.log($(this).position().left)
+                let moveLeft = $(this).position().left
+                //$(this).position() => 부모의 position에서 좌측에서 떨어진 값
+                //bar에게 left값을 내가 클락한 요소의 왼쪽에서 쩔어진 위치값으로 적용
+                bar.animate({
+                    'left' : moveLeft
+                })
+
+                //figure에게 클래스명 제어
+                let figure = $('figure');
+
+                //내가 클릭한 li의 index값을 찾아서 => $(this).index()
+                //그 index값과 동일한 순서를 가진
+                //figure에게 => figure.eq($(this).index())
+                //클래스명 on추가 => addClass($(this).index())
+                figure.removeClass('on')
+                figure.eq($(this).index()).addClass('on')        
+            })/* menu.click */
+        })/* .jqeury end */
+    </script>
+</head>
+<body>
+    <section class="cont01">
+        <h3>디자인</h3>
+        <div class="tab_menu">
+            <ul>
+                <li>포토샵</li>
+                <li>일러스트</li>
+                <li>피그마</li>
+            </ul>
+            <div class="bar">
+                <span>메뉴바</span>
+            </div><!-- .bar end -->
+        </div><!-- .tab_menu end -->
+
+        <figure class="on">
+            <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+            <caption>포토샵 이미지에 대한 설명내용</caption>
+        </figure>
+
+        <figure>
+            <img src="img/whale-g03e5ef1c4_1920.jpg" alt="" />
+            <caption>일러스트 이미지에 대한 설명내용</caption>
+        </figure>
+
+        <figure>
+            <img src="img/whale-g90ff93930_1920.jpg" alt="" />
+            <caption>피그마에 대한 설명내용</caption>
+        </figure>
+    </section><!-- .cont01 end -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {list-style: none;}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    color: #333;
+    line-height: 1;
+}
+.cont01 .inner {
+    width: calc(100% - 200px);
+    margin: 150px auto;
+}
+.cont01 .inner h3 {
+    font-size:  30px;
+    margin-bottom: 40px;
+}
+.cont01 .inner .list {
+    display: flex;
+    justify-content: space-between;
+}
+.cont01 .inner .list > figure {
+    width: 55%;
+    height: 500px;
+    position: sticky;
+    /* 초반에는 position:relativ기능을 가짐
+    부모가 상위에 걸리는 순간 fixed의 기능을 가짐
+    부모에게 overflow속성이 있으면 적용이 안됨. */
+    top: 50px;
+    left: 0;
+}
+.cont01 .inner .list > figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cont01 .inner .list .port_list {
+    width: calc(100% - 55% - 20px);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cont01 .inner .list .port_list .item {
+    width: calc(100% / 2 - 10px);
+}
+.cont01 .inner .list .port_list .item figure {
+		max-height: 400px;
+    height: 27.77vw;
+    /* 400 / 1440 * 100 = 27.77vw */
+    overflow: hidden; /* 자식 벗어나면 숨김처리 */
+}
+.cont01 .inner .list .port_list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+/* item중에서 2배수에 해당하는 item에게
+margin-top 적용 */
+.cont01 .item:nth-child(2n) {
+    margin-top: 100px;
+}
+.cont01 .item:hover figure img {
+    transform: scale(1.2);
+}
+
+/* 반응형 제작 시 px -> % 또는 vw 계산
+컨텐츠 width값 / 컨테이너 중심축 값 * 100
+436 / 1440 * 100 => 30.27%
+*/

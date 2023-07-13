@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이트</title>
+    <link href="css/20.css" rel="stylesheet" />
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            let openBtn = $('.open');
+            let closeBtn = $('.close');
+            let nav = $('nav');
+            let main = $('main');
+
+
+            //openBtn을 클릭했을 때 실행
+            //nav를 right값을 0
+            //main의 width값을 80%
+            //animate() 메서드
+            //=> 애니메이션 효과를 사용할 수 있음.
+            //시간조절, 부드러운효과
+
+            openBtn.click(function(){
+                nav.animate({
+                    //'속성':'속성값'
+                    'right' : '0px'
+                }, 1000);//nav
+                main.animate({
+                    'width' : '80%'
+                }, 1000);
+
+            });//openBtn.click()
+
+            closeBtn.click(function(){
+                nav.animate({
+                    'right' : '-20%'
+                }, 1000);
+                main.animate({
+                    'width' : '100%'
+                }, 1000);
+            })//closeBtn
+            
+            //cont01의 width값 조절하기
+            //list안에 있는 div한테 마우스 올렸을 때 실행
+            //내가 마우스 올린 div에게 width값 50%
+            //=> animate()
+
+            $('.list div').mouseenter(function(){
+                $(this).stop().animate({
+                    'width' : '50%'
+                }, 1000);
+                //나를 제외한 형제 선택자 => siblings()
+                $(this).siblings().stop().animate({
+                    'width' : '25%'
+                }, 1000);
+            });//mouseenter
+
+            $('.list div').mouseleave(function(){
+                $('.list div').stop().animate({
+                    'width' : '33.33%'
+                })
+            })
+
+        })/* .jquery end */
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <nav>
+            <div class="close">
+                <p style="cursor:pointer">메뉴닫기</p>
+            </div><!-- .close end -->
+            <ul class="gnb">
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+                <li><a href="#">menu5</a></li>
+                <li><a href="#">menu6</a></li>
+                <li><a href="#">menu7</a></li>
+            </ul><!-- .gnb end -->
+        </nav>
+        <main>
+            <header>
+                <div class="inner">
+                    <h1>
+                        <a href="#">logo-in</a>
+                    </h1>
+                    <div class="open">
+                        <p style="cursor:pointer">메뉴보기</p>
+                    </div>
+                </div><!-- .inner end -->
+            </header>
+
+            <section class="main_visual">
+                <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+            </section><!-- .main_visual -->
+
+            <section class="cont01">
+                <h3>MD's Pick</h3>
+                <div class="list">
+                    <div>
+                        <h4>친환경 제품 1</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt sit necessitatibus eum
+                            beatae, non ad repellendus officiis impedit illum adipisci est quibusdam atque porro odit
+                            aperiam earum. Numquam, optio! Sint?</p>
+                        <a href="#">더보기</a>
+                    </div>
+                    <div>
+                        <h4>친환경 제품 2</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, explicabo praesentium?
+                            Placeat corrupti magnam pariatur iusto, ratione repellendus dicta eaque earum iure quasi aut
+                            illum repellat commodi porro quo sed!</p>
+                        <a href="#">더보기</a>
+                    </div>
+                    <div>
+                        <h4>친환경 제품 3</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti alias porro minus eaque,
+                            tempore libero, dignissimos voluptatum id magnam quaerat aut laborum adipisci ea perferendis
+                            molestias! Aperiam quia pariatur autem.</p>
+                        <a href="#">더보기</a>
+                    </div>
+                </div><!-- .list end -->
+            </section><!-- .cont01 end -->
+        </main>
+    </div><!-- .wrap end -->
+</body>
+
+</html>

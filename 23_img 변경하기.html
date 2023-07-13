@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img변경하기</title>
+    <link href="css/23.css" rel="stylesheet"  />
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            let item = $('.item')
+            let cont01Img = $('.list > figure img');
+            item.mouseenter(function(){
+                console.log($(this).index())
+                let imgIndex = $(this).index() + 1;
+                cont01Img.attr('src', 'img/bg0' + imgIndex + '.jpg');
+
+                $('h4').css({
+                    'color' : '#333'
+                })
+                $('h4').eq($(this).index()).css({
+                    'color' : 'red'
+                })
+            })
+        })/* jquery end */
+    </script>   
+</head>
+<body>
+    <section class="cont01">
+        <div class="inner">
+            <h3>portfolio</h3>
+            <div class="list">
+                <figure>
+                    <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+                </figure>
+                <div class="port_list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/bg01.jpg" alt="" />
+                        </figure>
+                        <div>
+                            <span>반응형홈페이지</span>
+                            <h4>웹사이트제목</h4>
+                            <p>html, css, javascript, jquery</p>
+                            <p>디자인 + 퍼블리싱</p>
+                        </div>
+                    </div><!-- .item end -->
+                
+                    <div class="item">
+                        <figure>
+                            <img src="img/bg02.jpg" alt="" />
+                        </figure>
+                        <div>
+                            <span>반응형홈페이지</span>
+                            <h4>웹사이트제목</h4>
+                            <p>html, css, javascript, jquery</p>
+                            <p>디자인 + 퍼블리싱</p>
+                        </div>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <figure>
+                            <img src="img/bg03.jpg" alt="" />
+                        </figure>
+                        <div>
+                            <span>반응형홈페이지</span>
+                            <h4>웹사이트제목</h4>
+                            <p>html, css, javascript, jquery</p>
+                            <p>디자인 + 퍼블리싱</p>
+                        </div>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <figure>
+                            <img src="img/bg04.jpg" alt="" />
+                        </figure>
+                        <div>
+                            <span>반응형홈페이지</span>
+                            <h4>웹사이트제목</h4>
+                            <p>html, css, javascript, jquery</p>
+                            <p>디자인 + 퍼블리싱</p>
+                        </div>
+                    </div><!-- .item end -->
+                </div><!-- .port_list end -->
+
+            </div><!-- .list end -->
+        </div><!-- .inner end -->
+    </section><!-- .cont01 end -->
+</body>
+</html>

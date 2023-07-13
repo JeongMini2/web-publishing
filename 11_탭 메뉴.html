@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭메뉴</title>
+    <link href="css/11.css" rel="stylesheet" />
+    <script>
+        window.onload = function(){
+            //let menu = document.querySelector('.menu');
+            let menuBtn = document.querySelectorAll('.menu li');
+
+            let list = document.querySelectorAll('.list');
+            for(let i = 0; i < menuBtn.length; i++) {
+                menuBtn[i].onclick = function(){
+
+                    /* list[0].classList.remove('on');
+                    list[1].classList.remove('on');
+                    list[2].classList.remove('on'); */
+                    //forEach() 메서드 : 배열에 있는 모든 값 
+                    //또는 동일한 모든 선택자에게 실행
+                    list.forEach(function(list){ 
+                        list.classList.remove('on')
+                    }) 
+
+                    list[i].classList.add('on');
+
+
+                    // 모든 menuBtn에게 클래스명 지우고
+                    // 클릭되는 menuBtn에게 클래스명 추가
+                    menuBtn.forEach(function(btn){
+                        btn.classList.remove('on')
+                    });
+                    menuBtn[i].classList.add('on')
+
+
+                }//menuBtn[i].onclick
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <!-- 메뉴3개에 해당하는 콘텐츠 작성
+    탭메뉴 : 현대백화점-->
+    <section class="culture">
+        <h3>영감을 채워주는, Culture</h3>
+        <ul class="menu">
+            <li class="on">전체</li>
+            <li>전시</li>
+            <li>공연</li>
+        </ul><!-- .menu end -->
+        <div class="list on">
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/img_main_culture_go.jpg" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>천호점.고고다이노 공룡탐험대</h4>
+                        <p>2023.05.05~2023.05.28</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/img_main_culture_the.jpg" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>프랑스국립현대미술관 전</h4>
+                        <p>2023.05.17 ~ 2023.09.06</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+
+
+        </div><!-- .list end / 전체-->
+
+        <div class="list">
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/img_main_culture_the.jpg" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>프랑스국립현대미술관 전</h4>
+                        <p>2023.05.17 ~ 2023.09.06</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+            
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/20230425040212738.png" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>존 클라센 & 맥 바넷</h4>
+                        <p>2023.04.25 ~ 2023.09.10</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+
+
+        </div><!-- .list end / 전시-->
+
+        <div class="list">
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/img_main_culture_go.jpg" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>천호점.고고다이노 공룡탐험대</h4>
+                        <p>2023.05.05~2023.05.28</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+            <div class="item">
+                <a href="#">
+                    <figure>
+                        <img src="img/현대백화점/img_main_culture_moon.jpg" alt="고고다이노"/>
+                    </figure>
+                    <div>
+                        <h4>미아점.반짝반짝 달님이</h4>
+                        <p>2023.04.22 ~ 2023.05.07</p>
+                    </div>
+                </a>
+            </div><!-- .item end -->
+
+
+        </div><!-- .list end / 공연-->
+    </section><!-- .culture end  -->
+
+</body>
+</html>

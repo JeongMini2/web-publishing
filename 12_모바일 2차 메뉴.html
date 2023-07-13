@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차메뉴</title>
+    <link href="css/12.css" rel="stylesheet" />
+    <script>
+        window.onload = function(){
+            //1차메뉴 클릭 시 해당 2차메뉴가 
+            //나타나도록 실행
+            let depth01 = document.querySelectorAll('.depth01');
+            let depth02 = document.querySelectorAll('.depth02');
+
+            for(let i = 0; i < depth01.length; i++) {
+                //모든 2차메뉴 스타일을 display = block
+                depth02.forEach(function(item){
+                    item.style.display = 'none'
+                })
+
+                //depth01을 클릭 했을 때 실행
+                //조건식 2차메뉴가 display : none일때 
+                //display:block으로 실행 
+                let depthChildren = depth01[i].children[1];
+                //depth01중에서 내가 클릭한 자식을 찾기.
+                //children => 자식찾기
+                console.log(depthChildren) 
+
+
+                depth01[i].onclick = function(){
+                    if(depthChildren.style.display == 'none') {
+                        //조건이 맞으면 실행
+                        depthChildren.style.display = 'block';
+                        //  depth01[i]의 첫번째자식인 a에게 
+                        // 글자 색상 변경
+                        depth01[i].children[0].style.color = 'red'
+                    } else {
+                        //2차메뉴를 display = block으로 적용
+                        depthChildren.style.display = 'none';
+                        depth01[i].children[0].style.color = '#333'
+                    }
+                }
+
+
+            }//for
+
+            //05번파일 참고 
+            //메뉴닫기를 클릭하면 
+            //nav가 display = 'none' 적용
+
+            //로고 또는 메뉴열기를 클릭하면
+            //nav가 display = 'block'; 적용
+        }//window.onload
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">로고작성</a>
+            </h1>
+            <nav>
+                <div class="close">
+                    메뉴닫기
+                </div><!-- close end -->
+                <ul>
+                    <li class="depth01">
+                        <a href="#">검색</a>
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">내차팔기</a>
+                        <ul class="depth02">
+                            <li><a href="#">나와라차차차</a></li>
+                            <li><a href="#">구해줘차차차</a></li>
+                            <li><a href="#">테마 PICK</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">내차사기</a>
+                        <ul class="depth02">
+                            <li><a href="#">팔아줘차차차</a></li>
+                            <li><a href="#">직거래차차차</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                    <li class="depth01">
+                        <a href="#">혜택</a>
+                        <ul class="depth02">
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">차차차멤버십</a></li>
+                            <li><a href="#">쿠폰함</a></li>
+                            <li><a href="#">KB코인</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/img-01.jpg" alt="" />
+    </section>
+</body>
+</html>

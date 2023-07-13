@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다크모드 기본모드</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    p {
+      font-size: 50px;
+      padding: 0 100px;
+      text-align: center;
+    }
+    button {
+      border: 0;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      let bodyTage = document.getElementsByTagName('body')[0];
+      let modeBtn = document.getElementsByTagName('button')[0];
+
+      //modeBtn을 클릭 했을 때 실행
+      //modeBtn이 가지고 있는 텍스트가 다크모드일 때
+      //기본모드 변경,....
+      //bodyTag 배경컬러, 텍스트.... 변경
+      modeBtn.onclick = function(){
+        if(modeBtn.innerText == '다크모드') {
+          //modeBtn한테 기본모드로 작성
+          modeBtn.innerText = '기본모드';
+          modeBtn.style.backgroundColor = '#fff';
+          modeBtn.style.color = '#333';
+          //bodyTag한테 배경컬러 변경(#333)
+          bodyTage.style.backgroundColor = '#333'
+          //bodyTag한테 텍스트컬러 변경(#333)
+          bodyTage.style.color = '#fff'
+        } else {
+          modeBtn.innerText = '다크모드';
+          modeBtn.style.backgroundColor = '#333';
+          modeBtn.style.color = '#fff';
+          bodyTage.style.backgroundColor = '#fff';
+          bodyTage.style.color = '#333'
+        }
+      }
+    }//window.onload
+  </script>
+</head>
+<body>
+  <button>다크모드</button>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus enim quas, ea fugiat quis dicta laborum voluptas et corporis hic eligendi ducimus dolores, incidunt ratione! Vitae atque maiores distinctio fugit.</p>
+</body>

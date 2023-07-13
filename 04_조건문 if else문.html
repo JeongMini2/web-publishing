@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 if문 if else문</title>
+  </head>
+  <body>
+    <script>
+      //조건식 p.345 ~
+      //if(조건식) {스크립트 코드}
+      //조건식이 참일 때 문장내의 스크립트 코드 실행
+      //조건이 거짓일 때 실행이 안됨
+      let num = 10;
+      if(num < 100) {
+        //조건식이 참일 때 실행될 코드
+        document.write('안녕하세요')
+      }
+  
+      //if else문
+    /* if(조건식) {
+        조건이 참일 때
+        스크립트 코드 실행
+      } else {
+        조건이 거짓일 때
+        스크립트 코드 실행
+      } */
+      let walk = prompt('하루에 걷는 양은 몇 보 인가요?', '0');
+      //입력값이 500보다 작거나 같으면 '노력해 주세요'
+      if(walk <= 500) {
+        document.write('노력해 주세요')
+      } else {
+        document.write('매우 훌륭해요!')
+      }
+  
+      //else if 문 조건식을 두가지 이상 작성
+    /* if(조건식1) {
+        스크립트 코드1
+      } else if (조건식2) {
+        스크립트 코드2
+      } else {
+        모든 조건이 맞지 않을 때
+        스크립트 코드3
+      } */
+    </script>
+  </body>

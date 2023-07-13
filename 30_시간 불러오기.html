@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시간 불러오기</title>
+</head>
+<body>
+    <h3>지금은<span id="time"></span></h3>
+    <script>
+        function clock() {
+        let time = document.querySelector('#time')
+        //내장객체 => 시간, 분, 초 함수사용
+        let day = new Date();
+        let hours = day.getHours(); //시간을 불러오는 함수
+        let minutes = day.getMinutes(); //분을 불러오는 함수
+        let seconds = day.getSeconds(); //초를 불러오는 함수
+        console.log(hours)
+        console.log(minutes)
+        console.log(seconds)
+        console.log(day)
+        time.innerHTML = hours + ':' + minutes + ':' + seconds
+        }
+        clock();
+        //1초 => 1000
+        setInterval(clock, 1000)
+        //시간을 설정하여 반복 실행
+    </script>
+</body>
+</html>

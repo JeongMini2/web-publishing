@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 변경</title>
+  <link href="css/07_style.css" rel="stylesheet" />
+  <script>
+    window.onload = function(){
+      let img1 = 'img/ocean-g0ea5d0807_1920.jpg';
+      let img2 = 'img/whale-g90ff93930_1920.jpg';
+      let img3 = 'img/sea-g46bc9e182_1920.jpg';
+      //배열, 여러개의 값, 변수들을 모아서 배치, 배열하는 방법
+      //안에 있는 값들을 순차적으로 불러옴
+      let imgList = [img1, img2, img3];
+
+      let imgTag = document.getElementsByTagName('img')[0];
+      let btn = document.getElementsByTagName('button')[0];
+      let count = document.getElementsByClassName('count')[0];
+      //순서초기값 = 0
+      let index = 0;
+      //btn을 클릭했을 때 실행
+      //index값이 1씩 증가할 수 있도록 실행
+      //증감연산자 1씩 증가 또는 감소
+      btn.onclick = function(){
+        index++;
+        //index값과 imgList가 가지는 값이 같을 때 index값을 0으로 설정
+        //길이, 갯수 구하는 함수 => length
+        //imgList.length => 3
+        if(index == 3) {
+          index = 0;
+        }        
+        console.log(imgList.length)
+        imgTag.src = imgList[index];
+        //span한테 순서값 작성
+        count.innerHTML = index + 1;
+
+      }//btn.onclick
+    }//window.onload
+  </script>
+</head>
+<body>
+  <section>
+    <div>
+      <h3>고래 사진</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ipsum error accusamus rem ad soluta amet accusantium eaque. Iusto, esse voluptates. Corrupti accusamus reiciendis aliquam ab fuga? Quo, repellendus fugiat.</p>
+      <button>사진 보기<span class="count">1</span>/3</button>
+    </div>
+    <figure>
+      <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+    </figure>
+  </section>
+</body>

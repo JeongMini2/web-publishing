@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 클릭 시 이미지 변경</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+  <div class="box">
+    <img src="img/whale-g90ff93930_1920.jpg" alt="" />
+    <button>이미지변경하기</button>
+  </div>
+
+  <script>
+    //box안에 있는 img불러오기
+    let box = document.getElementsByClassName('box')[0];
+    let boxImg = box.getElementsByTagName('img')[0];
+    //box안에 있는 button
+    let boxBtn = box.getElementsByTagName('button')[0];
+
+    //클릭 => onclick
+    //단 한번만 실행됨
+    boxBtn.onclick = function(){
+      boxImg.src = 'img/sea-g46bc9e182_1920.jpg'
+    }
+  </script>
+</body>

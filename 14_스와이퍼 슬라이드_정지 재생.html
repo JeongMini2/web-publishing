@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스와이퍼 슬라이드</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="css/14.css" rel="stylesheet" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            var swiper = new Swiper(".main_visual", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                //pagination: {
+                //  el: ".swiper-pagination",
+                //  clickable: true,
+                //},
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            //슬라이드 정지재생
+            let stopBtn = document.getElementsByClassName('stop')[0];
+            let playBtn = document.getElementsByClassName('play')[0];
+            //stop()메서드, start()메서드
+            //playBtn display:none시켜주기
+            playBtn.style.display = 'none';
+
+            stopBtn.onclick = function () {
+                //변수명 swiper의 autoplay 멈추기
+                swiper.autoplay.stop();
+                //정지버튼 없애고, 재생버튼 나타나기
+                stopBtn.style.display = 'none';
+                playBtn.style.display = 'block';
+            }//stopBtn
+            playBtn.onclick = function () {
+                swiper.autoplay.start();
+                playBtn.style.display = 'none';
+                stopBtn.style.display = 'block';
+            }
+
+            var swiper1 = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+            });
+        }//window.onload end
+    </script>
+</head>
+
+<body>
+    <!-- swiper demo -->
+    <!-- Swiper -->
+    <div class="swiper main_visual">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+            <div class="swiper-slide">
+                <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+            <div class="swiper-slide">
+                <img src="img/ocean-ge9369862f_1280.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+            <div class="swiper-slide">
+                <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- 정지/재생버튼 추가 -->
+        <div class="control">
+            <div class="stop">정지</div>
+            <div class="play">재생</div>
+        </div><!-- control end -->
+    </div>
+
+    <section class="cont01">
+        <div class="title">
+            <h3>웹퍼블리셔<br />중급과정</h3>
+            <a href="#">전체보기</a>
+        </div><!-- .title end -->
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <figure>
+                        <img src="img/whale-g03e5ef1c4_1920.jpg" alt="" />
+                    </figure>
+                    <p>중급1_1일차</p>
+                </div>
+                <div class="swiper-slide">
+                    <figure>
+                        <img src="img/whale-g90ff93930_1920.jpg" alt="" />
+                    </figure>
+                    <p>중급1_2일차</p>
+                </div>
+                <div class="swiper-slide">
+                    <figure>
+                        <img src="img/whale-g970233271_1920.jpg" alt="" />
+                    </figure>
+                    <p>중급1_3일차</p>
+                </div>
+                <div class="swiper-slide">
+                    <figure>
+                        <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+                    </figure>
+                    <p>중급1_4일차</p>
+                </div>
+            </div> <!-- swiper-slide end -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+</body>
+
+</html>

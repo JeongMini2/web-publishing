@@ -1,0 +1,64 @@
+@charset "utg-8";
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    color: #333;
+    line-height: 1;
+    font-family: 'GmarketSansMedium';
+}
+.cont01 {
+    width: 1280px;
+    margin: 150px auto;
+    position: relative;
+    text-align: center;
+}
+.cont01 .btn button {
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cont01 .btn button.next {
+    left: auto;
+    right: 0;
+}
+.cont01 h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.cont01 .list_wrap .list {
+    display: flex;
+    justify-content: space-between;
+}
+.cont01 .list_wrap .list .item {
+    width: calc(100% / 2 - 20px);
+}
+.cont01 .list_wrap .list .item img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+}
+.cont01 .list_wrap .list .item div {
+    padding: 30px 0;
+}
+.cont01 .list_wrap .list {
+    display: none;
+}
+.cont01 .list_wrap .list.on {
+    display: flex;
+}

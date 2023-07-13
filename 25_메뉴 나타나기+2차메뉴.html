@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴</title>
+    <link href="css/25.css" rel="stylesheet" />
+    <script src="lib/jquery-3.7.0.min.js"></script> 
+    <script src="lib/jquery-ui.min.js"></script>   
+    <script>
+        $(function(){
+            let open = $('.open');
+            let close = $('.close');
+            let navigation = $('nav');
+            let depth01 = $('.depth01 > a');
+            let depth02 = $('.depth02');
+            //open 클릭을 했을 때 실행
+            //navigation의 left값을 0
+            //animate()
+            open.click(function(){
+                navigation.animate({
+                    'left' : '0'   
+                }, 1000, 'easeInOutElastic')
+            })//open.click
+            //close를 클릭했을 때 실행
+            //navigation의 left값을  -100%
+            //animate()사용
+            close.click(function(){
+                navigation.animate({
+                    'left' : '-100%'
+                })
+            })
+
+          /*   navigation.css({
+                'left' : '0'
+            }) //2차메뉴작성 후 삭제 */
+
+            //1차메뉴를 클릭했을 때 
+            //2차메뉴가 나타남 
+            //slideUp(), slideDown()
+            depth01.click(function(){
+                //depth02.slideDown()
+
+                //내가클릭한 depth01의 바로뒤에있는
+                //형제선택자에게 slideDown()
+                //siblings() : 자신을 제외한 모든 형제선택자
+                //next() : 바로뒤에있는 형제선택자
+                //$(this).siblings().slideDown();
+
+               /* 👩‍🦰 첫번째 방법 */
+                /*  depth02.slideUp()
+                $(this).next().slideDown(); */
+
+                /* 👩‍🦰 두번째 방법 */
+                //slideToggle();
+                //슬라이드업,다운
+                //$(this).siblings().slideToggle();  
+
+                /* 👩‍🦰 세번째 방법 */
+                //조건문
+                //내가클릭한 요소의 자식의 css가 
+                //display none이면 
+                //내가클릭한요소의 자식을 slideDown()
+                if($(this).siblings().css('display') == 'none') {
+                    depth02.slideUp()
+                    $(this).siblings().slideDown();
+
+                    //내가클릭한 요소에게 스타일 변경
+                    depth01.css({
+                        'color' : '#333'
+                    })
+                    $(this).css({
+                        'color' : 'tan', 
+                    })
+                } else {
+                    $(this).siblings().slideUp();  
+                    $(this).css({
+                        'color' : '#333', 
+                    })  
+                }
+                    //조건이 맞지 않을 때 
+                //내가클릭한요소의 자식을 slideUp()
+            })
+
+
+        })//jquery end
+    </script>    
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">SJ</a>
+            </h1>
+            <div class="open">
+                <p>메뉴보기</p>
+            </div><!-- open end -->
+            <nav>
+                <div class="close">
+                    <p>메뉴닫기</p>
+                </div><!-- close end -->
+                <ul class="gnb">
+                    <li class="depth01">
+                        <a href="#">menu1</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                            <li><a href="#">menu1-3</a></li>
+                            <li><a href="#">menu1-4</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- .depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu2</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                            <li><a href="#">menu2-3</a></li>
+                            <li><a href="#">menu2-4</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- .depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu3</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-2</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                            <li><a href="#">menu3-4</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- .depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu4</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu4-1</a></li>
+                            <li><a href="#">menu4-2</a></li>
+                            <li><a href="#">menu4-3</a></li>
+                            <li><a href="#">menu4-4</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- .depth01 end -->
+                </ul><!-- gnb end -->
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/bg01.jpg" alt="" />
+    </section><!-- .main_visual end -->
+</body>
+</html>

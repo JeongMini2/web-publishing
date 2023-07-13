@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>싱글드롭다운</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        body {
+            line-height: 1;
+            color: #333;
+        }
+        header {
+            height: 100px;
+            line-height: 100px;
+            position: relative;
+        }
+        header .inner {
+            max-width: 1280px;
+            width: 98%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        header .inner nav > ul .depth01 {
+            display: inline-block;
+            vertical-align: top;
+            
+            text-align: center;
+            position: relative;
+        } 
+        header .inner nav > ul .depth01 > a {
+            padding: 0 30px;
+        }
+        header .inner nav > ul .depth01 .depth02 {
+            line-height: 1;
+            background-color: #fff;
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+        }
+        header .inner nav > ul .depth01 .depth02 li {
+            padding: 10px 30px;
+        }
+        .main_visual {
+            height: 100vh;
+        }
+        .main_visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script src="jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            //1차메뉴한테 마우스 올렸을 때
+            //마우스올린 자식인 2차메뉴가 드롭다운
+            $('.depth01').mouseenter(function(){
+                $(this).children('.depth02').slideDown();
+            });
+            //1차메뉴한테 마우스 벗어났을 때 실행
+            //2차메뉴가 슬라이드업 진행
+            $('.depth01').mouseleave(function(){
+                $('.depth02').slideUp();
+            })
+        })//jquery end
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">JEONG LOGO</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li class="depth01">
+                        <a href="#">menu01</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu01-01</a></li>
+                            <li><a href="#">menu01-02</a></li>
+                            <li><a href="#">menu01-03</a></li>
+                            <li><a href="#">menu01-04</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu02</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu02-01</a></li>
+                            <li><a href="#">menu02-02</a></li>
+                            <li><a href="#">menu02-03</a></li>
+                            <li><a href="#">menu02-04</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu03</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu03-01</a></li>
+                            <li><a href="#">menu03-02</a></li>
+                            <li><a href="#">menu03-03</a></li>
+                            <li><a href="#">menu03-04</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu04</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu04-01</a></li>
+                            <li><a href="#">menu04-02</a></li>
+                            <li><a href="#">menu04-03</a></li>
+                            <li><a href="#">menu04-04</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu05</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu05-01</a></li>
+                            <li><a href="#">menu05-02</a></li>
+                            <li><a href="#">menu05-03</a></li>
+                            <li><a href="#">menu05-04</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+                </ul>
+            </nav>
+        </div><!-- inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/yellow01.jpg" alt="" />
+    </section><!-- main_visual end -->
+</body>
+</html>

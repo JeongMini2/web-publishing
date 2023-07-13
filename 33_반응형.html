@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형</title>
+    <link rel="stylesheet" href="css/33.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            //pc nav, 싱글드롭다운
+            let pcDepth01 = $('.pc .depth01');
+            let pcDepth02 = $('.pc .depth02');
+            pcDepth01.mouseenter(function(){
+                //pcDepth02.slideDown()
+                //내가 마우스 올린 선택자의 자신인 depth02가 나타남
+                $(this).children(pcDepth02).stop().slideDown()
+                //children() 자식(직계자식)
+                //find() 자식, 자손
+            })
+            //1차메뉴를 마우스 벗어났을 때
+            //2차메뉴가 슬라이드업
+            pcDepth01.mouseleave(function(){
+                pcDepth02.stop().slideUp();
+            })
+
+            //lang 언어 클릭했을 때 lang_menu나타남
+            let lang = document.getElementsByClassName('lang')[0];
+            let langBtn = document.getElementsByTagName('button')[0];
+            let langMenu = document.getElementsByClassName('lang_menu')[0];
+
+            langMenu.style.display = 'none'
+            //langBtn을 클릭했을 때 실행
+            //if문 작성 조건식 langMenu의 스타일값이 display가 none과 같을 때
+            //실행 => langMenu의 스타일값이 display가 block이 됨.
+            //조건이 맞지 않으면 langMenu의 스타일값이 display가 none이 됨
+            
+            langBtn.onclick = function(){
+                if(langMenu.style.display == 'none') {
+                    langMenu.style.display = 'block'
+                } else {
+                    langMenu.style.display = 'none'
+                }
+            }//langBtn end
+
+            //모바일 2차메뉴, 아코디언 메뉴
+            let mobileDepth01 = $('.mobile .depth01 > a');
+            mobileDepth01.click(function(){
+                //slideToggle() : 슬라이드 업/다운 반복
+                //next() : 바로뒤에 있는 형제요소
+                //siblings() : 나를 제외한 형제선택자
+                //내가 클릭한 요소의 바로뒤에 있는 형제요소에게
+                //slideToggle진행
+                $(this).siblings().slideToggle();
+                //toggleClass() : 클래스명 추가삭제
+                $(this).toggleClass('on');
+            })//mobileDepth01.click()
+
+            //모바일 open/close
+            let mobileNav = $('nav.mobile');
+            let open = $('.open');
+            let close = $('.close');
+            
+            close.click(function(){
+                mobileNav.animate({
+                    'left' : '100%'
+                })
+            })// close.click()
+
+            open.click(function(){
+                mobileNav.animate({
+                    'left' : '0'
+                })
+            })// open.click()
+
+            //.cont01 탭메뉴
+            let cont01Menu = $('.menu li')
+            let contList = $('.list')
+            cont01Menu.click(function(){
+                //내가 클릭한 li에게 클래스명 on추가
+                cont01Menu.removeClass('on')
+                $(this).addClass('on')
+
+                //contList에게 내가 클릭한 li와
+                //동일한 인덱스값을 가진 list에게 클래스명 추가
+                contList.removeClass('on')
+                contList.eq($(this).index()).addClass('on')
+            })
+        })//jquery end
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">jeongmin</a>
+            </h1>
+            <nav class="pc">
+                <ul class="gnb">
+                    <li class="depth01">
+                        <a href="#">menu1</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                            <li><a href="#">menu1-3</a></li>
+                            <li><a href="#">menu1-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu2</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                            <li><a href="#">menu2-3</a></li>
+                            <li><a href="#">menu2-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu3</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-2</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                            <li><a href="#">menu3-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu4</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu4-1</a></li>
+                            <li><a href="#">menu4-2</a></li>
+                            <li><a href="#">menu4-3</a></li>
+                            <li><a href="#">menu4-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu5</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu5-1</a></li>
+                            <li><a href="#">menu5-2</a></li>
+                            <li><a href="#">menu5-3</a></li>
+                            <li><a href="#">menu5-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+                </ul><!-- .gnb end -->
+            </nav><!-- .pc end -->
+
+            <div class="pc lang">
+                <button>KOR</button>
+                <ul class="lang_menu">
+                    <li><a href="#">KOR</a></li>
+                    <li><a href="#">ENG</a></li>
+                    <li><a href="#">CHN</a></li>
+                </ul><!-- .lang_menu end -->
+            </div><!-- .pc lang end  -->
+
+            <div class="mobile open">
+                <span>메뉴보기</span>
+            </div><!-- .mobile open end -->
+
+            <!-- nav 추가 -->
+            <nav class="mobile">
+                <div class="close">
+                    <span>메뉴닫기</span>
+                </div><!-- .close end -->
+
+                <ul class="gnb">
+                    <li class="depth01">
+                        <a href="#">menu1</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                            <li><a href="#">menu1-3</a></li>
+                            <li><a href="#">menu1-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu2</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                            <li><a href="#">menu2-3</a></li>
+                            <li><a href="#">menu2-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu3</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-2</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                            <li><a href="#">menu3-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu4</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu4-1</a></li>
+                            <li><a href="#">menu4-2</a></li>
+                            <li><a href="#">menu4-3</a></li>
+                            <li><a href="#">menu4-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+
+                    <li class="depth01">
+                        <a href="#">menu5</a>
+                        <ul class="depth02">
+                            <li><a href="#">menu5-1</a></li>
+                            <li><a href="#">menu5-2</a></li>
+                            <li><a href="#">menu5-3</a></li>
+                            <li><a href="#">menu5-4</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depht01 end -->
+                </ul><!-- .gnb end -->
+
+                <div class="lang">
+                    <button>KOR</button>
+                    <ul class="lang_menu">
+                        <li><a href="#">KOR</a></li>
+                        <li><a href="#">ENG</a></li>
+                        <li><a href="#">CHN</a></li>
+                    </ul><!-- .lang_menu end -->
+                </div><!-- .lang end  -->
+            </nav><!-- .mobile end -->
+        </div><!-- .inner end -->
+    </header>
+    <main>
+        <section class="main_visual">
+            <img src="img/bg01.jpg" alt="" />
+            <div class="inner">
+                <h2>범고래</h2>
+                <a href="#">View more</a>
+            </div><!-- .inner end -->
+        </section><!-- .main_visual end -->
+
+        <section class="cont01">
+            <div class="inner">
+                <ul class="menu">
+                    <li class="on"><a href="#" onclick="return false;">아이템1</a></li>
+                    <li><a href="#" onclick="return false;">아이템2</a></li>
+                    <li><a href="#" onclick="return false;">아이템3</a></li>
+                </ul><!-- .menu end -->
+
+                <div class="list on">
+                    <h3>ITEM VER.1</h3>
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 1</h4>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/ocean-ge9369862f_1280.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 2</h4>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <h3>ITEM VER.2</h3>
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 1</h4>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/whale-g03e5ef1c4_1920.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 2</h4>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list end -->
+
+                <div class="list">
+                    <h3>ITEM VER.3</h3>
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/whale-g970233271_1920.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 1</h4>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+                            </figure>
+                            <h4>아이템 테마 2</h4>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont01 end -->
+    </main>
+</body>
+</html>

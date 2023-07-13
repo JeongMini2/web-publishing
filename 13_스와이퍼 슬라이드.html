@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스와이퍼 슬라이드</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main_visual {
+            height: 80vh;
+        }
+
+        .main_visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main_visual .swiper-button-next:after,
+        .swiper-rtl .swiper-button-prev:after {
+            content: '';
+            background-image: url('img/고래\ 우.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 45px;
+            height: 45px;
+        }
+
+        .main_visual .swiper-button-prev:after,
+        .swiper-rtl .swiper-button-next:after {
+            content: '';
+            background-image: url('img/고래\ 좌.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 45px;
+            height: 45px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: auto;
+            height: auto;
+        }
+
+        .main_visual .swiper-pagination-bullet-active {
+            background-image: url('img/고래\ 꼬리.png');
+            background-size: 100% 100%;
+            background-color: transparent;
+            width: 30px !important;
+            height: 30px !important;
+        }
+
+        .main_visual .swiper-pagination-bullet {
+            width: 5px;
+            height: 5px;
+            border-radius: 0;
+        }
+        /* .cont01 */
+        .cont01 {
+            max-width: 1280px;
+            width: calc(100% - 40px);
+            margin: 100px auto;
+        }
+        .cont01 img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+    </style>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            var swiper = new Swiper(".main_visual", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            }); //main_visual slide
+
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 2500, //슬라이드 시간
+                    disableOnInteraction: false,
+                    //수동으로 슬라이드 적용 시 자동으로 슬라이드 멈춤 => true
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                    },
+                },
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- swiper-demo -->
+    <!-- Swiper -->
+    <div class="swiper main_visual">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+
+            <div class="swiper-slide">
+                <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+
+            <div class="swiper-slide">
+                <img src="img/ocean-ge9369862f_1280.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+
+            <div class="swiper-slide">
+                <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+            </div> <!-- swiper-slide end -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!--  -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    
+    <section class="cont01">
+        <!-- swiper-slide -->
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+                    <button>바로가기</button>
+                </div> <!-- swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+                    <button>바로가기</button>
+                </div> <!-- swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <img src="img/ocean-ge9369862f_1280.jpg" alt="" />
+                    <button>바로가기</button>
+                </div> <!-- swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+                    <button>바로가기</button>
+                </div> <!-- swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <img src="img/whale-g03e5ef1c4_1920.jpg" alt="" />
+                    <button>바로가기</button>
+                </div> <!-- swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <img src="img/whale-g970233271_1920.jpg" alt="" />
+                    <button>바로가기</button>
+                  </div> <!-- swiper-slide end -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+</body>
+
+</html>

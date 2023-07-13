@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>풀페이지</title>
+</head>
+
+<link href="lib/dist/fullpage.min.css" rel="stylesheet">
+<style>
+    #section0 {background-color: aqua;}
+    #section1 {background-color: antiquewhite}
+    #section2 {background: url('img/bg01.jpg') center center / cover no-repeat;
+               color: #fff;         
+    }
+    #fp-nav ul li a span, .fp-slidesNav ul li a span {
+        background: #fff;
+    }
+    #fp-nav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li a.active span, .fp-slidesNav ul li:hover a.active span {
+        height: 7px;
+        width: 7px;
+        margin: -3px 0 0 -3px;
+        background: black;
+    }
+
+    .fp-scroll-mac.fp-viewing-secondPage-0 #fp-nav ul li a span {
+        background: #149474;
+    }
+    header {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        background-color: #ffffffb0;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;    
+    }
+    body {
+        color: black;
+    }
+    header nav {
+        height: 100%;
+    }
+    header nav ul {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header nav ul li {
+        margin: 0 20px;
+    }
+    .fp-viewing-firstPage header nav ul li:first-child {
+        color: #149474;
+    }
+    .fp-viewing-secondPage-0 header nav ul li:nth-child(2) {
+        color: #149474;
+    }
+    footer {
+        padding: 50px 0;
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+    }
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+                <li><a href="#">menu5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="fullpage">
+        <div class="section " id="section0">
+            <div class="intro">
+                <h1>Navigation dots</h1>
+                <p>An easy and beautiful way to navigate throw the sections</p>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="slide" id="slide1">
+                <div class="intro">
+                    <h1>Clickable</h1>
+                    <p>
+                        You can even click on the navigation and jump directly to another section.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="slide" id="slide2">
+                <h1>Slide 2</h1>
+            </div>
+    
+        </div>
+        <div class="section" id="section2">
+            <div class="intro">
+                <h1>Enjoy it</h1>
+            </div>
+        </div>
+
+        <footer class="section fp-auto-height">
+            <p>footer</p>
+        </footer><!-- #footer -->
+    </div><!-- #fullpage -->
+
+    <script src="lib/dist/fullpage.min.js"></script>
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            anchors: ['firstPage', 'secondPage', '3rdPage'],
+            /* sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'], */
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['First page', 'Second page', 'Third and last page'],
+            responsiveWidth: 900,
+            afterResponsive: function(isResponsive){
+
+}
+        });
+    </script>
+</body>
+</html>

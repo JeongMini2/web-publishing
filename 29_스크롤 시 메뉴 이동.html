@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 이동</title>
+    <link rel="stylesheet" href="css/29.css">
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            let hd = $('header');
+            let hdTop = hd.offset().top; //offset().top 브라우저 시작지점에서부터 떨어진 값
+            let menu = $('nav li');
+            console.log(hdTop);
+            $(window).scroll(function(){
+                let scrollBar = $(window).scrollTop();
+                console.log(scrollBar)
+                //header가 가지는 값보다 스크롤바의 값이 더 클 때 header에게 클래스명 on추가
+                if(hdTop < scrollBar) {
+                    hd.addClass('on');
+                } else {
+                    hd.removeClass('on');
+                }
+
+                //스크롤을 했을 때
+                //각 section의 브라우저에서 떨어진 값과
+                //스크롤바의 값을 비교했을 때
+                //스크롤바의 값이 더 클때
+                //menu에게 클래스명 제어
+
+                //.about                
+                if($('.about').offset().top <= scrollBar) {
+                    menu.removeClass('on');
+                    menu.eq(0).addClass('on')
+                } else {
+                    menu.removeClass('on')
+                }
+
+                //.web
+                if($('.web').offset().top <= scrollBar) {
+                    menu.removeClass('on');
+                    menu.eq(1).addClass('on');
+                }
+                
+                //.design
+                if($('.design').offset().top <= scrollBar) {
+                    menu.removeClass('on');
+                    menu.eq(2).addClass('on');
+                }
+
+                //.resume
+                if($('.resume').offset().top <= scrollBar) {
+                    menu.removeClass('on');
+                    menu.eq(3).addClass('on');
+                }
+
+            })//window.scroll()
+        })//jquery end
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">SJ</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#web">web/app</a></li>
+                    <li><a href="#design">design</a></li>
+                    <li><a href="#resume">resume</a></li>
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+        <img src="img/bg01.jpg" alt="" />
+    </section><!-- .main visual end -->
+
+    <section class="about" id="about">
+        <h3>about</h3>
+    </section><!-- .about end -->
+
+    <section class="web" id="web">
+        <h3>web/app</h3>
+    </section><!-- .web end -->
+
+    <section class="design" id="design">
+        <h3>design</h3>
+    </section><!-- .desing end -->
+
+    <section class="resume" id="resume">
+        <h3>resume</h3>
+    </section><!-- .resume end -->
+</body>
+</html>

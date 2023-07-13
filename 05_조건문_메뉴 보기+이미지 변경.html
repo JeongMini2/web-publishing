@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴보기 + 이미지 변경</title>
+    <link href="css/05_style.css" rel="stylesheet" />
+    <script>
+      //모든 문서를 읽은 다음에 스크립트 실행
+      window.onload = function(){
+        //스크립트 코드 작성
+        //1. 메뉴보기, 메뉴닫기 클릭 시 실행
+        //메뉴보기 클릭 시 nav가 나타남
+        //(nav를 display : block 만들기)
+        let menuOpen = document.getElementsByClassName('menu')[0];
+        let menuClose = document.getElementsByClassName('close')[0];
+        let navi = document.getElementsByTagName('nav')[0];
+        //navi한테 display = 'none'작성하여
+        //엘리먼트 스타일에 값이 적용될 수 있도록 실행
+        navi.style.display = 'none';
+        menuOpen.onclick = function(){
+          //조건식
+          //navi가 가지는 스타일 중에서
+          //display가 none과 같을 때(==)
+          if(navi.style.display == 'none') {
+            navi.style.display = 'block'
+          }
+        }
+        //변수명 menuClose를 클릭했을 때
+        //조건식(navi의 display가 block과 같을 때) {
+          //navi를 display를 none만들기
+        //}
+        menuClose.onclick = function(){
+          if(navi.style.display == 'block') {
+            navi.style.display = 'none'
+          }
+        }
+        //2. 숫자 클릭 시 이미지 변경
+        let mainVisual = document.getElementsByClassName('main_visual')[0];
+        let mainImg = mainVisual.getElementsByTagName('img')[0];
+        let mainNum = mainVisual.getElementsByTagName('li');
+        //안에 있는 모든 li를 사용하기 위해 index값 작성 안함.
+        mainNum[1].onclick = function(){
+          if(mainNum[1].innerText == 2) {
+            mainImg.src = 'img/whale-g90ff93930_1920.jpg'
+          }
+        mainNum[0].onclick = function(){
+          if(mainNum[0].innerText == 1) {
+            mainImg.src = 'img/sea-g46bc9e182_1920.jpg'
+          }
+        }
+        }
+      }//window.onload end
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <h1>
+          <a href="#">29CM</a>
+        </h1>
+        <span class="menu">메뉴보기</span>
+        <nav>
+          <span class="close">메뉴닫기</span>
+          <ul>
+            <li><a href="#">의류</a></li>
+            <li><a href="#">가방</a></li>
+            <li><a href="#">신발</a></li>
+            <li><a href="#">액세서리</a></li>
+            <li><a href="#">가구/인테리어</a></li>
+            <li><a href="#">주방/생활</a></li>
+          </ul>
+        </nav>
+      </div><!-- .inner end -->
+    </header>
+    <section class="main_visual">
+      <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+      <ul>
+        <li>1</li>
+        <li>2</li>
+      </ul>
+    </section><!-- .main_visual end -->
+  </body>

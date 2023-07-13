@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복 자동실행</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .text_event {
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+        }
+        .text_event p {
+            display: none;
+        }
+        .text_event p.on {
+            display: block;
+        }
+    </style>
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            let text = $('.text_event p');
+            let i = 0;
+            function textSlide(){
+                i++;
+                if(i>= text.length) {
+                    i = 0;
+                }
+                text.removeClass('on');
+                text.eq(i).addClass('on');
+            }
+            textSlide();
+            setInterval(textSlide, 2000);
+        })
+    </script>
+</head>
+<body>
+    <div class="text_event">
+        <p class="on">선착순 이벤트</p>
+        <p>스크립트 실행해보기</p>
+    </div><!-- text_event end -->
+</body>
+</html>

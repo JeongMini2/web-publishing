@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디데이</title>
+    <script>
+        window.onload = function(){
+            function eventDay() {
+                let day = new Date(); //오늘 데이터
+                let event = new Date('2023-12-25 00:00:00');
+                //이벤트 실행날
+                let eventDate = event - day; //전체일수 - 오늘일수 뺀값
+                console.log(eventDate) //밀리초 => 1ms => 0.001초
+                //시간, 분, 초 가지고 와야함.
+                //0.001초 => 1초 => 1 * 1000
+                //60초(1분) => 60 * 1000
+                //60분(1시간) => 60 * 1000 * 60
+                //24시간(하루) => 60 * 1000 * 60 * 24
+
+                //Math.floor() : 계산 후 소수점 이하를 버림
+
+                //일
+                let eDay = Math.floor(eventDate / (60 * 1000 * 60 * 24)) + 1 //오늘을 포함한 값
+                //let eDay = Math.floor(eventDate / (60 * 1000 * 60 * 24)) => 남은 일수 198 (오늘을 제외한 값)
+                console.log(eDay)
+
+                //시간
+                let eHour = Math.floor((eventDate % (60 * 1000 * 60 * 24)) / (60 * 1000 * 60))
+                console.log(eHour)
+
+                //분
+                let eMin = Math.floor((eventDate % (60 * 1000 * 60)) / (1000 * 60))
+                console.log(eMin)
+
+                //초
+                let eSec = Math.floor((eventDate % (1000 * 60) / 1000))
+                console.log(eSec)
+
+                let time = document.querySelector('.time')
+                time.innerHTML = eDay + '일' + eHour + '시' + eMin + '분' + eSec + '초'
+                //일 + 시 + 분 +초
+            }//eventDay()
+            eventDay()
+            setInterval(eventDay, 1000)
+        }
+    </script>
+</head>
+<body>
+    <h4>2023년 크리스마스까지<span class="time"></span></h4>
+</body>
+</html>

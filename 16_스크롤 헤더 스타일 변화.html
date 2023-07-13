@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더 스타일 변화</title>
+    <link href="css/16.css" rel="stylesheet" />
+    <script>
+        window.onload = function(){
+            //로딩페이지, 스플래시 화면
+            let loadingPage = document.querySelector('#loading');
+            //일정시간 뒤에 실행 => setTimeout();
+            setTimeout(function(){
+                loadingPage.style.opacity = '0';
+                loadingPage.style.zIndex = '-1';//뒤로보내기
+                /* loadingPage.style.transform = 'scale(0)'; */
+            }, 2000)//2000 => 2초뒤에 실행
+
+
+            let hd = document.querySelector('header');
+            let cont02 = document.querySelector('.cont02');
+            let cont02Item = cont02.querySelectorAll('p');
+
+            window.onscroll = function(){
+                let scrollBar = window.scrollY;//스크롤바 y축 값
+                let hdTop = hd.offsetTop;//header의 y축 값
+                console.log(scrollBar)
+                console.log(hdTop)
+                if(hdTop < scrollBar) {
+                    hd.classList.add('on');
+                } else {
+                    hd.classList.remove('on');
+                }
+
+                //cont02
+                for(let i = 0; i < cont02Item.length; i++) {
+                    if(cont02.offsetTop <= scrollBar) {
+                        cont02Item[i].classList.add('on' + i)
+                    } else {
+                        cont02Item[i].classList.remove('on' + i)
+                    }
+                }//
+
+            }//scroll
+        }//end
+    </script>
+</head>
+<body>
+    <div id="loading">
+        <p>스플래시 화면</p>
+    </div><!-- loading end -->
+
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">로고이미지</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#">메뉴1</a></li>
+                    <li><a href="#">메뉴2</a></li>
+                    <li><a href="#">메뉴3</a></li>
+                    <li><a href="#">메뉴4</a></li>
+                    <li><a href="#">메뉴5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="main_visual">
+        <img src="img/desert-g5ae6547d5_1280.jpg" alt="" />
+    </section><!-- main_visual end -->
+    <section class="cont01">
+        <img src="img/ocean-g0ea5d0807_1920.jpg" alt="" />
+    </section><!-- .cont01 -->
+    <section class="cont02">
+        <div>
+            <p>아이템1</p>
+            <p>아이템2</p>
+            <p>아이템3</p>
+            <p>아이템4</p>
+        </div>
+    </section><!-- .cont02 end -->
+</body>
+</html>

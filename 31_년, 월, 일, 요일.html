@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>년, 월, 일, 요일</title>
+    <script>
+        window.onload = function(){
+            let day = new Date(); //날짜 객체
+            let year = day.getFullYear(); //년도
+            console.log(year)
+            let weekday = day.getDay(); //요일 0(일)~6(토)
+            let week = ['일', '월', '화', '수', '목', '금', '토'];
+            console.log(week[weekday])
+
+            let month = day.getMonth();//월 0 ~ 11
+            console.log(month)
+            let monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+            let date = day.getDate();
+            console.log(date)
+
+            let todayYear = document.querySelector('.year');
+            let todayMonth = document.querySelector('.month');
+            let todayDay = document.querySelector('.day');
+            let todayWeek = document.querySelector('.week');
+
+            //String()메서드: 숫자를 문자로 변환
+            //padStart()메서드 : 주어진 길이에서 새로운 문자를 추가
+
+            todayYear.innerHTML = year //년
+            todayMonth.innerHTML = monthList[month] //월
+            todayDay.innerHTML = String(date).padStart(2, '0') //일
+            todayWeek.innerHTML = week[weekday] //요일
+
+        }//window.onload end
+    </script>
+</head>
+<body>
+    <div>
+        <span class="year"></span>년
+        <span class="month"></span>월
+        <span class="day"></span>일        
+        <span class="week"></span>요일       
+    </div>
+</body>
+</html>

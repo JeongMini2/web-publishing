@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 불러오기</title>
+    <link href="css/28.css" rel="stylesheet" />
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            //자바스크립트 선택자
+            //.bg, .big_img, big_img img
+            let bg = document.querySelector('.bg');
+            let big = document.querySelector('.big_img');
+            let bigImg = big.querySelector('img');
+            let bigText = big.querySelector('h4');
+            //변수명 big안에 있는 img
+
+            //제이쿼리 선택자
+            //.item
+            let item = $('.item');
+            item.click(function(){
+               //children() : 자식
+               //find() : 자식, 자손
+               //내가 클릭한 item의 자손인 img의 값 찾기
+               let thisImg = $(this).find('img').attr('src');
+               let thisText = $(this).find('h4').text();
+               //자식, 자손인 h4가 가지고 있는 텍스트 값 찾기
+
+               console.log(thisImg)
+               big.style.display = 'block'
+               //big.css({'display' : 'block'})
+               bigImg.src = thisImg
+               //big안에 있는 img의 src값을 
+               //변수명 thisImg 구현
+               //bigImg.attr('src', thisImg)
+
+               //bg를 display block으로 나타나도록 진행
+               bg.style.display = 'block'
+
+               bigText.innerHTML = thisText
+
+            })//item.click
+
+            //bg를 클릭했을 때 실행
+            //(자바스크립트로 실행) onclick
+            //big을 display none
+            //bg를 dispaly none
+            bg.onclick = function(){
+                big.style.display = 'none'
+                bg.style.display = 'none'
+            }
+            big.onclick = function(){
+                big.style.display = 'none'
+                bg.style.display = 'none'
+            }
+        })//query end
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="bg"></div>
+        <header>
+            <h1>
+                <a href="#">logo</a>
+            </h1>
+            <div class="open">메뉴보기</div>
+        </header>
+        <section class="main_visual">
+            <img src="img/bag5.jpg" alt="" />
+        </section><!-- .main_visual end -->
+        <section class="cont01">
+            <div class="inner">
+                <h3>나만을 위한 추천 상품</h3>
+                <div class="big_img">
+                    <figure>
+                        <img src="img/bag1.jpg" alt="" />
+                    </figure>
+                    <h4>아이템1</h4>
+                </div><!-- .big_img end -->
+
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/bag1.jpg" alt="" />
+                        </figure>
+                        <h4>아이템1</h4>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <figure>
+                            <img src="img/bag2.jpg" alt="" />
+                        </figure>
+                        <h4>아이템2</h4>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <figure>
+                            <img src="img/bag3.jpg" alt="" />
+                        </figure>
+                        <h4>아이템3</h4>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <figure>
+                            <img src="img/bag4.jpg" alt="" />
+                        </figure>
+                        <h4>아이템4</h4>
+                    </div><!-- .item end -->
+                </div><!-- list end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont01 end -->
+
+    </div><!-- .wrap end -->
+</body>
+</html>

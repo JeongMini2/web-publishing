@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이전 다음 버튼
+    </title>
+    <link href="css/09_style.css" rel="stylesheet" />
+    <script>
+        window.onload = function(){
+            let list = document.getElementsByClassName('list');
+            let prevBtn = document.getElementsByClassName('prev')[0];
+            let nextBtn = document.getElementsByClassName('next')[0];
+
+            let index = 0;
+            //다음을 클릭을 했을 때
+            //클래스명 list에게 클래스명 on이
+            //순서대로 붙을 수 있도록 진행
+            nextBtn.onclick = function(){
+                index++; //클릭을 할 때마다 1씩 증가
+                //조건문 작성
+                if(index == list.length) {
+                    //index = 0;
+                    index = list.length - 1
+                }
+
+                //list한테 클래스명 on삭제
+                list[0].classList.remove('on');
+                list[1].classList.remove('on');
+
+                list[index].classList.add('on');
+            }//nextBtn.onclick
+
+            //이전을 클릭을 했을 때
+            //앞에있는 list한테 클래스명 on이
+            //순서대로 붙을 수 있도록 진행
+            prevBtn.onclick = function(){
+                //1씩 감소(--;)
+                index--;
+                if(index < 0) {
+                    index = 0;
+                }
+
+                //두번째 list한테 클래스명 삭제
+                list[0].classList.remove('on');
+                list[1].classList.remove('on');
+                
+                //순서에 따라서 클래스명 on추가
+                list[index].classList.add('on');
+            }
+        }//window.onload
+    </script>
+</head>
+
+<body>
+    <section class="cont01">
+        <h3>고래 구경 지금 떠나요</h3>
+        <div class="list_wrap">
+            <div class="list on">
+                <div class="item">
+                    <img src="img/whale-g90ff93930_1920.jpg" alt="" />
+                    <div>
+                        <p>고래</p>
+                        <h4>바다의 수호천사</h4>
+                        <strong>혹등고래</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <img src="img/whale-g03e5ef1c4_1920.jpg" alt="" />
+                    <div>
+                        <p>고래</p>
+                        <h4>바다의 무법자</h4>
+                        <strong>범고래</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end -->
+
+            <div class="list">
+                <div class="item">
+                    <img src="img/sea-g46bc9e182_1920.jpg" alt="" />
+                    <div>
+                        <p>고래</p>
+                        <h4>꼬리</h4>
+                        <strong>고래 꼬리</strong>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <img src="img/ocean-ge9369862f_1280.jpg" alt="" />
+                    <div>
+                        <p>고래</p>
+                        <h4>바닷속 사진</h4>
+                        <strong>범고래와 바다동물</strong>
+                    </div>
+                </div><!-- .item end -->
+            </div><!-- .list end -->
+
+
+        </div><!-- .list_wrap end -->
+        <!-- 좌우버튼 -->
+        <div class="btn">
+            <button class="prev">이전</button>
+            <button class="next">다음</button>
+        </div><!-- .btn end -->
+
+    </section><!-- cont01 end -->
+</body>
+</html>

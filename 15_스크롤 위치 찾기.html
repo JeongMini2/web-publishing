@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 위치 찾기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        .main_visual {
+            height: 100vh;
+            background-color: royalblue;
+            font-size: 70px;
+            text-align: center;
+            line-height: 100vh;
+            color: #fff;
+        }
+        .cont01 {
+            height: 100vh;
+            background-color: rgb(255, 137, 35);
+            font-size: 70px;
+            text-align: center;
+            line-height: 100vh; 
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let hd = document.querySelector('header p'); 
+            let cont01 = document.querySelector('.cont01');
+            
+            //화면을 스크롤을 했을 때 window.onscroll
+            window.onscroll = function(){
+                //세로 스크롤바가 움직이는  값 찾기
+                //window.scrollY
+                let scrollBar = window.scrollY;
+                hd.innerHTML = scrollBar;
+
+                //cont01 이 문서에서 떨어진 y축값
+                //=> offsetTop;
+                let cont01Top = cont01.offsetTop;
+                cont01.innerHTML = cont01Top
+            }
+        }//end
+    </script>
+</head>
+<body>
+    <header>
+        <p>header</p>
+    </header>
+    <section class="main_visual">
+        <p>메인 비주얼</p>
+    </section><!-- .main_visual end -->
+    <section class="cont01">
+        <p>첫번째 콘텐츠</p>
+    </section><!-- .cont01 end -->
+</body>
+</html>

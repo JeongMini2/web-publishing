@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 변수</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        //스크립트 주석방법1
+        /* alt+shift=a
+        스크립트 주석방법2 */
+        //변수 : 데이터를 담는 공간 p.331
+        //변수 var(교재), (let, const) < 현재 많이 사용됨
+        // var : 중복 사용가능 (중복 될 경우 마지막 데이터 값 사용)
+        // var 변수명 = 데이터
+        // let : 중복 사용불가 (중복 될 경우 빨간 물결 줄 생김 오류) (가장 많이 사용 될 예정)
+        // let 데이터 = 데이터 ('' 있으면 문자 인식 없으면 숫자 인식)
+        // document = 문서
+        // '<br>' = 줄바꿈
+        // 변수 작성시 단어+단어 일 경우 두번째 단어를 대문자로 표기 ex)h2Tag
+
+        let a = 100; //숫자100
+        let b = 500; //숫자500
+        let c = '100'; //문자100
+
+        document.write(a + b, '<br>');
+        document.write(b + c)
+        
+        let d = '자바스크립트';
+        let h2Tag = '<h2>제목</h2>';
+
+        document.write(d, '<br>');
+        document.write(h2Tag)
+        
+        //div 태그를 불러오기 위한 과정
+        //getElementsByTagName 문서 안에 있는 태그를 불러오는 방식
+        //[index] index = 순번
+        //스크립트 안에서는 0부터 시작되기에 0 1 2 3... 순으로 올라감
+        let divTag = document.getElementsByTagName('div')[0];
+
+        //divTag.innerText 자바스크립트 안에서 태그 내부에 내가 넣고자하는 내용 추가
+        //style.fontSize 자바스크립트 안에서 태그 폰트 바꾸는 방식
+        divTag.innerText = '내용추가됨';
+        divTag.style.fontSize = '60px';
+        
+    </script>
+</body>

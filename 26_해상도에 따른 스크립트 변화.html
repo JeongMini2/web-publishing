@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>해상도</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        .menu {
+            display: flex;
+            height: 40px;
+            line-height: 40px;
+        }
+        .menu li {
+            background-color: orange;
+            padding: 0 30px;
+            margin-right: 10px;
+        }
+        .menu li.on {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+        <script src="lib/jquery-3.7.0.min.js"></script>
+        <script>
+        $(function(){
+            let menu = $('.menu li');
+            menu.click(function(){
+                //모든 menu에게 클래스명 제거
+                //내가클릭한 menu는 클래스명 추가
+                menu.removeClass('on');
+                $(this).addClass('on');
+            }) //menu.click
+
+            //화면의크기가 767px 이하일 때 
+            //menu.mouseenter()
+            $(window).resize(function(){
+                if(window.outerWidth < 767) {
+                    //화면의 크기가 767보다 작을 때
+                    menu.mouseenter(function(){ 
+                        menu.removeClass('on');
+                        $(this).addClass('on');
+                    }) //menu.click
+                }
+            })//window.resize()
+
+        })
+    </script>
+
+    </head>
+    <body>
+        <ul class="menu">
+            <li class="on">전체</li>
+            <li>반응형</li>
+            <li>기본형</li>
+            <li>모바일웹/앱</li>
+        </ul><!-- .menu end -->
+    </body>
+</html>

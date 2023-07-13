@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스명 제어</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        body {
+            color: #333;
+            line-height: 1;
+            overflow: hidden;
+        }
+        .left_menu {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .left_menu li.on {
+            background-color: #000;
+            color: #fff;
+        }
+        .left_menu li {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 70px;
+            background-color: #fff;
+            margin: 10px 0;
+            /* 가로 70px
+            세로 70px
+            정원형
+            글자가운데정렬
+            수직가운데정렬
+            배경컬러 
+            텍스트컬러
+            위아래 여백 10px 띄워주기 */
+        }
+        section {
+            height: 100vh;
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #menu1 {background-color: palegoldenrod;}
+        #menu2 {background-color: rgb(194, 238, 170);}
+        #menu3 {background-color: rgb(170, 213, 238);}
+        #menu4 {background-color: rgb(190, 170, 238);} 
+    </style>
+    <script src="jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            //.left_menu li를 클릭했을 때 실행
+            //모든 li한테 클래스명 제거
+            //내가 클릭한 곳에 클래스명 on추가
+            $('.left_menu li').click(function(){
+                //left_menu li한테 클래스명 제거
+                //클래스명제거 =>removeClass('on')
+                $('.left_menu li').removeClass('on');
+                
+                //클래스명추가 =>addClass('on')
+                $(this).addClass('on');
+            })
+
+        })//jquery end
+    </script>
+</head>
+<body>
+    <ul class="left_menu">
+        <li class="on"><a href="#menu1">menu01</a></li>
+        <li><a href="#menu2">menu02</a></li>
+        <li><a href="#menu3">menu03</a></li>
+        <li><a href="#menu4">menu04</a></li>
+    </ul><!-- .left_menu end -->
+    <section id="menu1">
+        <p>menu01 content</p>
+    </section><!-- #menu1 end -->
+
+    <section id="menu2">
+        <p>menu02 content</p>
+    </section><!-- #menu1 end -->
+    
+    <section id="menu3">
+        <p>menu03 content</p>
+    </section><!-- #menu1 end -->
+
+    <section id="menu4">
+        <p>menu04 content</p>
+    </section><!-- #menu1 end -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    line-height: 1;
+    color: #333;
+}
+header {
+    height: 100px;
+    line-height: 100px;
+    transition: 1s;
+}
+header.on {
+    height: 70px;
+    line-height: 70px;
+    background-color: #ffffff76;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+header .inner {
+    max-width: 1280px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+header .inner nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main_visual img,
+.cont01 img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.cont02 {
+    height: 100vh;
+    background-color: palegoldenrod;
+    
+}
+.cont02 div {
+    max-width: 1280px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cont02 div p {
+    opacity: 0; /* transition적용을 위해 사용 */
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+}
+.cont02 div p.on0 {
+    opacity: 1;
+    transition: 0.7s;
+}
+.cont02 div p.on1 {
+    opacity: 1;
+    transition: 0.7s 0.5s; /* 실행시간 지연시간 */
+}
+.cont02 div p.on2 {
+    opacity: 1;
+    transition: 0.7s 1s;
+}
+.cont02 div p.on3 {
+    opacity: 1;
+    transition: 0.7s 1.5s;
+}
+#loading {
+    transition: 1s;
+    width: 100%;
+    height: 100vh;
+    background-color: palevioletred;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 50px;
+    text-align: center;
+    z-index: 999;
+}

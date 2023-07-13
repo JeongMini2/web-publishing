@@ -1,0 +1,96 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'MBC1961GulimM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Cafe24ClassicType-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {list-style: none;}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    line-height: 1;
+    color: #333;
+    /* font-family: 'Cafe24ClassicType-Regular'; */
+    font-family: 'MBC1961GulimM';
+}
+.culture {
+    width: 1440px;
+    margin: 100px auto;
+}
+.culture h3 {
+    font-size: 50px;
+}
+.culture ul {
+    /* 여백 : 위40px 좌우0 아래쪽20px */
+    margin: 40px 0 20px; 
+    font-family: 'S-CoreDream-3Light';
+}
+.culture ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 20px;
+    /* 가로로 나열
+    오른쪽으로 여백 : 20px
+    폰트크기 : 20px */
+}
+.culture ul li.on {
+    color: #ff0000;
+}
+.culture .list {
+    /* 아이템들을 가로로 나열
+    양끝에 붙여서 정렬(1440px) */
+    /* display: flex; */
+    justify-content: space-between;
+    display: none;
+    font-family: 'S-CoreDream-3Light';
+}
+.culture .list.on {
+    display: flex;
+}
+.culture .list .item {
+    width: calc(100% / 2 - 20px);
+}
+.culture .list .item figure {
+    /* 높이 500px */
+    height: 500px;
+
+}
+.culture .list .item figure img {
+    /* 비율에 맞춰서 전체 덮일 수 있도록 작성 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.culture .list .item div h4 {
+    /* 글자크기 20px
+    여백 위로 20px 아래로 30px */
+    font-size: 20px;
+    margin: 20px 0 30px;
+}
+/* .culture .list를 없애기
+.culture .list 한테 클래스명 on붙었을 때
+보여지도록 작성 */
+.culture .list .item div p {}

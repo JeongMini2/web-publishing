@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지변경</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            width: 500px;
+            border: 3px solid #000;
+            margin: 50px auto;
+        }
+        .gallery .big_img {
+            width: 100%;
+            height: 400px;
+        }
+        .gallery .big_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery .small_img {
+            display: flex;
+        }
+        .gallery .small_img img {
+            width: calc(100%/3);
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let big = document.getElementsByClassName('big_img')[0];//.big_img
+            let bigImg = big.getElementsByTagName('img')[0]; //big안에있는 img태그
+
+            let small = document.getElementsByClassName('small_img')[0]//.small_img
+            let smallImg = small.getElementsByTagName('img');//small안에 있는 img태그들
+            //반복문 : 동일한 명령을 여러번 진행하거나
+            //반복적으로 처리 p.345, p.353
+            //for(초기값; 조건식; 증감값) {실행문}
+            for(let i = 0; i < smallImg.length; i++){
+                console.log(i)
+                smallImg[i].onmouseenter = function(){
+                    console.log(smallImg[i])
+                    bigImg.src = smallImg[i].src;
+                }
+            } //for  
+
+        }
+    </script>
+</head>
+<body>
+    <section class="gallery">
+        <figure class="big_img">
+            <img src="img/bg-01.jpg" alt="" />
+        </figure><!-- big_img end -->
+        <figure class="small_img">
+            <img src="img/bg-01.jpg" alt="" />
+            <img src="img/yellow01.jpg" alt="" />
+            <img src="img/img-01.jpg" alt="" />
+        </figure><!-- small_img end -->
+    </section><!-- gallery end -->
+</body>
+</html>
